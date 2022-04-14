@@ -4,36 +4,36 @@
   </div>
 </template>
 <script lang="ts">
-  import Vue from 'vue';
+import Vue from 'vue'
 
-  export default Vue.extend({
-    name: 'Loading',
-    data() {
+export default Vue.extend({
+  name: 'LoadingPage',
+  data() {
+    return {
+      loading: false,
+      isFullScreen: true,
+    }
+  },
+  methods: {
+    start() {
+      this.loading = true
+
+      const hidden = () => {
+        this.isFullScreen = false
+      }
+
       return {
-        loading: false,
-        isFullScreen: true,
-      };
+        hidden,
+      }
     },
-    methods: {
-      start() {
-        this.loading = true;
-
-        const hidden = () => {
-          this.isFullScreen = false;
-        };
-
-        return {
-          hidden,
-        };
-      },
-      finish() {
-        this.loading = false;
-        this.isFullScreen = true;
-      },
+    finish() {
+      this.loading = false
+      this.isFullScreen = true
     },
-  });
+  },
+})
 </script>
 
 <style lang="scss" scoped>
-  @import '@/assets/sass/components/loading.scss';
+@import '@/assets/sass/components/loading.scss';
 </style>

@@ -10,20 +10,13 @@ module.exports = {
     'prettier',
   ],
   plugins: [],
-  // add your custom rules here
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
     'import/first': 'off',
     'import/order': 'off',
     indent: 'off',
-    '@typescript-eslint/index': [
-      'error',
-      'tab'
-    ],
     'no-new': 'off',
     'no-tabs': 'off',
-    semi: ['error', 'always'],
-    'vue/html-index': ['error', 'tab'],
-    'vue/order-in-components': 'off'
+    semi: ['off', 'always'],
   },
 }

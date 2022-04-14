@@ -1,4 +1,4 @@
-import {MutationsInterface, Mutations, State, Cookie} from "~/store/Challenges/types";
+import { MutationsInterface, Mutations } from '~/store/Challenges/types'
 
 export default {
   [Mutations.SET_CURRENT_CHALLENGE_INDEX](state, index) {
@@ -10,25 +10,25 @@ export default {
   },
 
   [Mutations.COMPLETE_CHALLENGE](state, xpAmount) {
-    const {current, end} = state.xp
+    const { current, end } = state.xp
     const currentTotalXP = xpAmount + current
-    const shouldLevelUp = (xpAmount + current) >= end;
-    state.completedChallenges += 1;
+    const shouldLevelUp = xpAmount + current >= end
+    state.completedChallenges += 1
 
     if (shouldLevelUp) {
-      state.level += 1;
+      state.level += 1
 
-      const remainingXp = currentTotalXP - end;
-      const experienceToNextLevel = Math.pow((state.level) * 4, 2);
+      const remainingXp = currentTotalXP - end
+      const experienceToNextLevel = Math.pow(state.level * 4, 2)
 
       state.xp = {
         current: remainingXp,
         start: 0,
         end: experienceToNextLevel,
-      };
+      }
 
-      state.isLevelUpModalOpen = true;
-      return;
+      state.isLevelUpModalOpen = true
+      return
     }
 
     state.xp = {
@@ -37,8 +37,8 @@ export default {
     }
   },
   [Mutations.SAVE_COOKIE_DATA](state, cookie) {
-    state.level = cookie.level;
-    state.xp = cookie.xp;
+    state.level = cookie.level
+    state.xp = cookie.xp
     state.completedChallenges = cookie.completedChallenges
-  }
+  },
 } as MutationsInterface

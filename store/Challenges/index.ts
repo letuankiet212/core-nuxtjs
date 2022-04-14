@@ -1,12 +1,12 @@
-import {State} from "~/store/Challenges/types";
-import allChallenges from '~/assets/challenges/data';
+import { State } from '~/store/Challenges/types'
+import allChallenges from '~/assets/challenges/data'
 
 export const state = (): State => ({
   level: 1,
   xp: {
-    current:32,
+    current: 32,
     start: 0,
-    end: 64
+    end: 64,
   },
   completedChallenges: 0,
   currentChallengeIndex: null,
