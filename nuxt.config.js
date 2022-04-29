@@ -1,4 +1,14 @@
+import messages from './i18n/'
 export default {
+  server: {
+    port: process.env.PORT || 3000,
+    host: process.env.HOST || '0.0.0.0',
+  },
+  target: process.env.SSR_MODE === 'true' ? 'server' : 'static',
+  ssr: process.env.SSR_MODE === 'true',
+  generate: {
+    dir: 'dist',
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'basecode',
@@ -53,7 +63,23 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'nuxt-i18n',
   ],
+  i18n: {
+    locales: ['vi'],
+    defaultLocale: 'vi', // language default
+    detectBrowserLanguage: {
+      useCookie: true, //Help save lang when reload page
+      cookieKey: 'i18n_redirected', //string name key
+      onlyOnRoot: true,
+      alwaysRedirect: true, //Awaly save member choise language
+    },
+    //Extension for i18n
+    vueI18n: {
+      fallbackLocale: 'vi', //language default
+      messages,
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

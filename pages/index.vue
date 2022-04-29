@@ -1,18 +1,33 @@
 <template>
-  <section
-    class="flex flex-col lg:flex-row flex-1 lg:flex-none lg:mt-16 sm:gap-x-10 md:gap-x-20"
-  >
-    <div class="flex flex-col w-full lg:w-1/2">
-      <Profile></Profile>
-      <CompletedChallenges />
+  <div class="home_page">
+    <div class="top-nav">
+      <div class="container h-full flex items-center justify-evenly">
+        <a class="top-nav__link">
+          <p class="text-sm text-grey-1">{{ $t('topbar.title1') }}</p>
+          <p class="text-xs text-gray-100">2021 - 2022</p>
+        </a>
+        <a class="top-nav__link"> </a>
+        <a class="top-nav__link"> </a>
+        <a class="top-nav__link"> </a>
+        <a class="top-nav__link"> </a>
+        <a class="top-nav__link"> </a>
+        <a class="top-nav__link"> </a>
+      </div>
     </div>
-  </section>
+
+    <div class="banner">
+      <img
+        src="~/assets/images/costume-bg.png"
+        width="100%"
+        height="auto"
+        alt=""
+      />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import CompletedChallenges from '~/components/atoms/CompletedChallenges.vue'
-import Profile from '~/components/molecules/Profile.vue'
 
 interface Head {
   title: string
@@ -20,10 +35,7 @@ interface Head {
 
 export default Vue.extend({
   name: 'IndexPage',
-  components: {
-    CompletedChallenges,
-    Profile,
-  },
+  components: {},
   head(): Head {
     return {
       title: 'Home | movue.it',
